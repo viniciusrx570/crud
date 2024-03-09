@@ -38,7 +38,6 @@ export class UserController {
   }
 
   @Patch(':id')
-  @ApiCreatedResponse({ type: UserEntity })
   async update(
     @Param('id', ParseIntPipe) id: string,
     @Body() userUpdateInput: UserUpdateDto,

@@ -8,6 +8,7 @@ import {
   Delete,
   ParseIntPipe,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 
@@ -21,7 +22,7 @@ import {
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { TaskEntity } from './entities/task.entity';
-
+// @UseGuards(AuthGuard)
 @Controller('task')
 @ApiTags('task')
 export class TaskController {

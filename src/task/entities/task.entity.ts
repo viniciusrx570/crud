@@ -3,7 +3,11 @@ import { Task } from '@prisma/client';
 import { Exclude } from 'class-transformer';
 
 export class TaskEntity implements Task {
-  @Exclude()
+
+  createdAt: Date;
+
+  updatedAt: Date;
+  @ApiProperty()
   id: number;
   @ApiProperty()
   title: string;
