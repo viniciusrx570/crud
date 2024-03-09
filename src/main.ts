@@ -4,7 +4,9 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    snapshot: true,
+  });
   app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
@@ -19,10 +21,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({
     forbidNonWhitelisted: true,
   }));
-  getCustomTransformers: (program: any) => ({
-    before: [require('@nestjs/swagger/plugin').before({}, program)]
-  });
-  
+
   await app.listen(3000);
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
