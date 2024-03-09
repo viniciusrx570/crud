@@ -10,5 +10,6 @@ import { AuthModule } from './auth/auth.module';
   imports: [TaskModule, UserModule, PrismaModule, AuthModule, ],
   controllers: [AppController],
   providers: [AppService],
+  exports:[AppService]
 })
 export class AppModule {}
